@@ -1,0 +1,69 @@
+
+<link rel="stylesheet" href="/css/home.css">
+
+        <h1 style="margin-top: 10px; margin-left: 300px;">Add New Employee</h1>
+      
+        <section id="admin-view">
+        
+            
+            <!-- Add employee form -->
+            <form id = "employee-form" action="/employee/create-employee" method="POST">
+
+                <div id="container">
+                    <div>
+                        <label for="employeeName">Name</label>
+                        <input type="text" name="employeeName" id="employee-name">
+                    </div>
+    
+                    <div>
+                        <label>Is she/he admin?</label>
+                        <select  name="userType" required>
+                              <option value="admin" > Yes </option>
+                              <option value="employee" selected> No </option>
+                          </select>
+                    </div>
+                    <div>
+                        <label>Select department.</label>
+                        <select name="department" required>
+                              <option value="HR" >human resource </option>
+                              <option value="Sales" > sales </option>
+                              <option value="Production" selected> Production </option>
+                              <option value="Marketing"> Marketing </option>
+                          </select>
+                    </div>
+    
+                    <div>
+                        <label for="joiningDate">Date of Joining</label>
+                        <input type="date" name="joiningDate" id="doj"> 
+                    </div>
+    
+                    <div>
+                        <label for="email">Email</label>
+                    <input type="email" name="email" id="employee-email">
+                    </div>
+                    
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="employee-password">      
+                    </div>
+                    
+    
+                    <div>
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" name="confirm-password" id="employee-email">
+                    </div>
+                  
+                </div>
+                
+                
+                <button id="add-btn">ADD</button>
+            </form>
+
+            <div id="employee-names">
+                <h1 style="margin-top: 10px; margin-bottom: 20px;">Employees</h1>
+                <% for(employee of employee){%>
+                   <a href="/employee/employee-details/<%=employee._id%>"><div id="<%=employee._id%>"><%= employee.employeeName%></div></a> 
+                    <%}%>
+                
+                </div>
+       </section>

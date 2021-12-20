@@ -2,7 +2,11 @@ const express = require('express');
 const port = 8000;
 const app = express();
 const expressLayouts = require('express-ejs-layouts')//for accesing all ejs files in single layout
+const db = require('./config/mongoose');
+app.use(express.static('./assets'));
 
+
+app.use(express.urlencoded());
 app.use(expressLayouts);
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true); 

@@ -1,0 +1,164 @@
+
+
+
+#employee-details-container{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    width: 750px;
+    margin: auto;
+    border: 2px solid rgb(7, 5, 5);
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 0 10px;
+}
+
+
+#container{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content:space-around;
+    padding: 5px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+#container div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#employee-details label{
+    font-weight: bold;
+    font-size: 15px;    
+}
+
+#employee-details input{
+    font-size: 15px;
+    padding: 2px 4px;
+    width: 200px;
+    background-color: azure;
+}
+
+select{
+    font-size: 15px;
+    padding: 2px 4px;
+    width: 200px;
+    background-color: azure;
+}
+
+#employee-details{
+    display: flex;
+    flex-direction: row;
+    height: 75%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#employee-details div{
+    font-size: 20px;
+    margin: 10px;
+}
+
+
+#actions{
+    display: flex;
+    flex-direction: row;
+    height: 20%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+#actions a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: rgb(228, 150, 235);
+    padding: 2px 4px;
+}
+
+ #update{
+    background-color: yellow;
+    padding: 2px 4px;
+    font-weight: bold;
+    margin-left: -324px;
+    margin-top: 9px;
+    font-size: 20px;
+    z-index: 2;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+#actions #delete{
+    background-color: rgb(235, 5, 5);
+    color: white;
+}
+
+#actions #assign-review{
+    background-color:aquamarine;
+    margin-left: 60px;
+}
+
+/* styles for review list */
+#performance-reviews{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+   
+}
+
+#review{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 600px;
+    height: 150px;
+    border: 2px solid rgb(26, 21, 21);
+}
+
+#review-by-update{
+    display: flex;
+    justify-content: space-around;
+    width: inherit;
+}
+
+#review-description{
+    display: flex;
+    justify-content: space-around;
+    width: inherit;
+}
+
+#update-review{
+    background-color: rgb(247, 247, 12);
+    padding: 5px;
+    font-weight: bold;
+    margin-left: 50px;
+    margin-top: -10px;
+    text-decoration: none;
+    color: black;
+}
+
+#comment{
+    height: 60px;
+    width: 400px;
+    font-size: 15px;
+}
+
+#add-review-btn{
+    padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 420px;
+    margin-bottom: 20px;
+}

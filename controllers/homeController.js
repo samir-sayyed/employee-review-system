@@ -1,5 +1,9 @@
+const Employee = require('../models/employee');
 
-module.exports.home = function(req, res){
-    // console.log('controller');
-    return res.render('home');
+module.exports.admin = function(req, res){
+    Employee.find({}, function(err, employee){
+        return res.render('admin',{
+            employee: employee
+        });
+    })
 }

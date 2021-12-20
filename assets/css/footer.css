@@ -1,0 +1,10 @@
+footer{
+    height: 40px;
+    width: 100%;
+    background-color:rgb(201, 192, 192);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    transform: translateY(520px);
+   }
