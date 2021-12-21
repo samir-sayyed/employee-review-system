@@ -1,5 +1,5 @@
 const Employee = require('../models/employee');
-console.log("hi");
+
 //for creating new project
 module.exports.createEmployee = function(req, res){
     Employee.create(req.body, function(err, employee){
@@ -10,15 +10,39 @@ module.exports.createEmployee = function(req, res){
     });
 };
 
+// redirecting to employee details page
 module.exports.employeeDetails = function(req, res){
-    // console.log(req.params.id);
-
+    console.log(req.params.id);
     let id = req.params.id;
-    Employee.findById(id).populate('performanceList').exec( //populating perfarmances so we can use them in a front end
+
+    Employee.findById(id).populate('performanceList').exec(
         function(err, employee){
-            //console.log(project);
             return res.render('employee_details',{
                 employee: employee
             });
         })
+}
+
+// deleting employee
+module.exports.deleteEmployee = function(req, res){
+    let id = req.params.id;
+    //console.log(id);
+    Employee.findById(id, function(err, employee){
+            if(err){console.log('erorr in deleting employee')};
+            employee.remove();
+    });
+ 
+    return res.redirect('/');
+}
+
+// updating employee employee
+module.exports.updateEmployee = function(req, res){
+    let id = req.params.id;
+    console.log("update", id);
+    Employee.findByIdAndUpdate(id, req.body, function(err, employee){
+            if(err){console.log('erorr in updating employee')};
+            // console.log("updated successfully");
+    });
+ 
+    return res.redirect('back');
 }

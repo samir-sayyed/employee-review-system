@@ -37,6 +37,7 @@ const employeeSchema = new mongoose.Schema({
       performanceList: [
         {
           type: mongoose.Schema.Types.ObjectId,
+          ref: "Performance"
         },
       ],
       listToReview: [

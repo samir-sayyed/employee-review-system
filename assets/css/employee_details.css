@@ -79,15 +79,14 @@ select{
     color: black;
     font-weight: bold;
     font-size: 20px;
-    background-color: rgb(228, 150, 235);
     padding: 2px 4px;
 }
 
  #update{
-    background-color: yellow;
+    background-color: gray;
     padding: 2px 4px;
     font-weight: bold;
-    margin-left: -324px;
+    margin-left: -52px;
     margin-top: 9px;
     font-size: 20px;
     z-index: 2;
@@ -103,8 +102,13 @@ select{
 }
 
 #actions #assign-review{
-    background-color:aquamarine;
-    margin-left: 60px;
+    background-color:gray;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 2px 4px;
+    
 }
 
 /* styles for review list */
@@ -117,7 +121,7 @@ select{
    
 }
 
-#review{
+.review{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -125,12 +129,24 @@ select{
     width: 600px;
     height: 150px;
     border: 2px solid rgb(26, 21, 21);
+    margin: 10px;
+    background-color: lightgray;
 }
 
 #review-by-update{
     display: flex;
     justify-content: space-around;
     width: inherit;
+}
+
+#ranking{
+    font-size: 15px;
+    padding: 0;
+    font-weight: bold;
+    height: 35px;
+    width: 35px;
+    margin-top: 15px;
+    padding-left: 5px;
 }
 
 #review-description{
@@ -140,19 +156,22 @@ select{
 }
 
 #update-review{
-    background-color: rgb(247, 247, 12);
+    background-color:gray;
     padding: 5px;
     font-weight: bold;
-    margin-left: 50px;
+    margin-left: 20px;
     margin-top: -10px;
     text-decoration: none;
     color: black;
 }
 
 #comment{
-    height: 60px;
+    height: 70px;
     width: 400px;
     font-size: 15px;
+}
+#comment textarea{
+    padding: 5px;
 }
 
 #add-review-btn{
@@ -162,3 +181,97 @@ select{
     margin-left: 420px;
     margin-bottom: 20px;
 }
+
+/* Styles for adding employee performance */
+
+#create-performance{
+    height: 200px;
+    width: 400px;
+    padding: 10px;
+    display: none;
+    position: fixed;
+    margin-left: 430px;
+    z-index: 10;
+    background-color: lightsteelblue;
+}
+
+#create-performance form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: inherit;
+    width: inherit;
+}
+
+#create-performance form textarea{
+    font-size: 20px;
+}
+
+#close-btn{
+    margin-top: -60px;
+    margin-left: 300px;
+}
+
+/* dropdown */
+.dropbtn {
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 130px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    max-height: 120px;
+    overflow: auto; 
+    margin-left: -5px;  
+  }
+  
+  .dropdown-content .element {
+    width: 130px;
+    color: black;
+    padding: 2px 5px;
+    font-size: 20px;
+    margin: 5px;
+  }
+  
+  .dropdown-content .element:hover{
+    background-color: yellowgreen;
+  }
+
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+
+  #assign-btn{
+      padding: 1px 2px;
+      margin-left: 30px;
+      margin-top: 5px;
+      background-color: gray;
+      color: white;
+      font-weight: bold;
+  }
+
+  .list-review{
+      background-color: bisque;
+     
+  }
+
+
+ 

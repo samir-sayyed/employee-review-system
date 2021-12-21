@@ -7,6 +7,8 @@ router.get('/', homeController.admin);
 
 router.use('/employee', require('./employee'));
 
+router.use('/performance', require('./performance'));
+
 
 // console.log('router');
 module.exports = router;
