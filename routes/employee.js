@@ -3,6 +3,8 @@ const router = express.Router();
  
 const employeeController = require('../controllers/employeeController');
 
+
+router.get('/employee', employeeController.employeePage);
 //route for craeting employee
 router.post('/create-employee', employeeController.createEmployee);
 
@@ -14,6 +16,8 @@ router.get('/delete-employee/:id', employeeController.deleteEmployee);
 
 //route for updating employee
 router.post('/update-employee/:id', employeeController.updateEmployee);
+
+
 
 // console.log('router');
 module.exports = router;

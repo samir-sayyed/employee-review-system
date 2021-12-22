@@ -1,5 +1,10 @@
 const Employee = require('../models/employee');
 
+
+module.exports.employeePage = function(req, res){
+   return res.render('employee')
+}
+
 //for creating new project
 module.exports.createEmployee = function(req, res){
     Employee.create(req.body, function(err, employee){

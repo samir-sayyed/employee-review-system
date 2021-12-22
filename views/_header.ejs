@@ -3,12 +3,14 @@
             <div id="logo">
                 <img src="/images/logo.png" alt="logo">
             </div>
+            <% if(locals.user) {%>
             <div id="employee-name">
-                <h2>Samir</h2>
+                <h2><%=locals.user.employeeName%></h2>
             </div>
+            <%}%>
             <div>
-                <a href=""><span id="sign-out">Sign Out</span></a>
-               <a style="font-size: 30px; color: rgb(0, 0, 0); margin-left: 20px;" href="/"><i  class="fas fa-home"></i></a> 
+                <a href="/session-destroy"><span id="sign-out">Sign Out</span></a>
+               <a style="font-size: 30px; color: rgb(0, 0, 0); margin-left: 20px;" href="/admin"><i  class="fas fa-home"></i></a> 
             </div>
             
             

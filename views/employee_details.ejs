@@ -86,7 +86,7 @@
 <div id="create-performance">
     <strong>Employee Name</strong> <span> <%= employee.employeeName %></span>
     <form action="/performance/create-performance" method="POST">
-        <input type="hidden" name="reviewBy" value="<%= employee._id%>">
+        <input type="hidden" name="reviewBy" value="<%=locals.user.employeeName%>">
         <input type="hidden" name="reviewFor" value="<%= employee._id%>">
         
         <div>
@@ -112,7 +112,7 @@
      
             <% for(performance of employee.performanceList) {%>
                 <form action="/performance/update-performane/<%= performance._id%>" class="review" method="POST">
-                    <input type="hidden" name="reviewBy" value="<%= employee._id%>">
+                    <input type="hidden" name="reviewBy" value="<%=locals.user.employeeName%>">
                     <input type="hidden" name="reviewFor" value="<%= employee._id%>">
                     <div id="review-by-update">
                         <div id="review-by"><strong>Review By : </strong> <%= performance.reviewBy %></div>
