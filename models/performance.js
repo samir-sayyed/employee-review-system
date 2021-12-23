@@ -4,8 +4,7 @@ const mongoose = require('mongoose');
 const performanceSchema = new mongoose.Schema(
     {
       reviewBy: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Employee",
+        type:String,
       },
       reviewFor: {
         type: mongoose.Schema.Types.ObjectId,

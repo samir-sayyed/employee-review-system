@@ -108,6 +108,7 @@ select{
     font-weight: bold;
     font-size: 20px;
     padding: 2px 4px;
+    cursor: pointer;
     
 }
 
@@ -213,64 +214,110 @@ select{
     margin-left: 300px;
 }
 
-/* dropdown */
-.dropbtn {
-    color: rgb(0, 0, 0);
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* assign review */
+span[role=textbox] {
+    width: 100%;
+    height: 100%;
+    min-width: 10em;
+    min-height: 3em;
+    word-break: break-all;
+    padding: 10px;
+  }
+  span[role=textbox]:focus {
+    outline: 1px solid #727bfa;
   }
   
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    display: none;
+  #assign-form {
     position: absolute;
-    background-color: #f9f9f9;
-    min-width: 130px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    max-height: 120px;
-    overflow: auto; 
-    margin-left: -5px;  
+    overflow: auto;
+    padding: 50px;
+    background-color: #bcbedf;
+    visibility: hidden;
+    justify-items: start;
+    min-width: 150px;
+    height: 200px;
+    transform: translateY(205px);
+    z-index: 5;
+    margin-top: -90px;
+    margin-left: -15px;
+    padding: 20px;
+    /* Hide the browser's default checkbox */
+    /* Create a custom checkbox */
+    /* On mouse-over, add a grey background color */
+    /* When the checkbox is checked, add a blue background */
+    /* Create the checkmark/indicator (hidden when not checked) */
+    /* Show the checkmark when checked */
+    /* Style the checkmark/indicator */
   }
-  
-  .dropdown-content .element {
-    width: 130px;
-    color: black;
-    padding: 2px 5px;
-    font-size: 20px;
-    margin: 5px;
+  #assign-form .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* background-color: red; */
   }
-  
-  .dropdown-content .element:hover{
-    background-color: yellowgreen;
+  #assign-form .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
   }
-
-  .dropdown-content a:hover {background-color: #f1f1f1}
-  
-  .dropdown:hover .dropdown-content {
+  #assign-form .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  #assign-form .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  #assign-form .container input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  #assign-form .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  #assign-form .container input:checked ~ .checkmark:after {
     display: block;
   }
-  
-
-  #assign-btn{
-      padding: 1px 2px;
-      margin-left: 30px;
-      margin-top: 5px;
-      background-color: gray;
-      color: white;
-      font-weight: bold;
+  #assign-form .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
   }
 
-  .list-review{
+  #assign-close{
+      cursor: pointer;
+      padding: 5px;
+      font-size: 15px;
       background-color: bisque;
-     
+      margin-top: -50px;
+      margin-left: 50px;
+      margin-bottom: 20px;
+  }
+
+  #submit-btn{
+      padding: 2px 5px;
+      font-size: 15px;
+      font-weight: bold;
+      margin-left: 20px;
   }
 
 

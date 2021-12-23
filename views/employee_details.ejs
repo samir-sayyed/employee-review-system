@@ -62,18 +62,25 @@
         </form>
     
     <div id="actions">
-        <form action="">
-            <div id="assign-review" class="dropdown">     
-                <div class="dropbtn">Assign review</div>
-                <div class="dropdown-content">
-                    <div class="element">
-                        <input class="lable-check-input" type="checkbox" value=""id="lable">
-                        <label class="form-check-label" for="lable1">samir</label>  
-                    </div>
-                    <button id="assign-btn"> Assign</button>
-                </div>
-            </div>    
+        <div id="assign-review">Assign Review</div>
+
+        <form id="assign-form" action="/employee/<%= employee._id %>/push-reviews" method="post">
+            <a class="btn" id="assign-close">close</a>
+            <h3 style="margin-bottom: 15px;"> Select employees</h3>
+            <% if(employees.length>0){%>
+                    <%for(let employee of employees){%>
+                        <%if(employee.userType=='employee'){%>
+                            <label class="container"><%=employee.employeeName%>
+                                <input name="asign" type="checkbox" defaultValue="<%= employee.id%>">
+                                <span class="checkmark"></span>
+                            </label>
+                            
+                        <%}%>
+                    <%}%>
+                <button id="submit-btn"type="submit"> submit</button>
+            <%}%>
         </form>
+        
 
         <a href="/employee/delete-employee/<%= employee._id%>" id="delete">Delete</a>
        
@@ -106,7 +113,7 @@
 
 
 <!-- performance of employee -->
-<h1 style="margin-left:500px; margin-top: 50px; margin-bottom: 20px;">Performance Reviews</h1>
+<h1 style="margin-left:660px; margin-top: 50px; margin-bottom: 20px;">Performance Reviews</h1>
 <div id="performance-reviews">
     <button id="add-review-btn">Add review</button>
      
@@ -115,7 +122,7 @@
                     <input type="hidden" name="reviewBy" value="<%=locals.user.employeeName%>">
                     <input type="hidden" name="reviewFor" value="<%= employee._id%>">
                     <div id="review-by-update">
-                        <div id="review-by"><strong>Review By : </strong> <%= performance.reviewBy %></div>
+                        <div id="review-by"><strong>Review By : </strong> <%= locals.user.employeeName%></div>
                     </div>
                     <div id="review-description">
                     <p id="comment">

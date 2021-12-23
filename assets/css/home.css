@@ -9,7 +9,7 @@
     width:100%;
     height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 #employee-names{
@@ -46,10 +46,10 @@
     display: flex;
     align-items: center;
     flex-direction: row;
-    justify-content:space-around;
+    justify-content:space-evenly;
     padding: 5px;
-    height: 400px;
-    width: 780px;
+    height: 350px;
+    width: 820px;
     flex-wrap: wrap;
 }
 
@@ -61,13 +61,14 @@
 
 #employee-form label{
     font-weight: bold;
-    font-size: 20px;    
+    font-size: 20px;
+    margin-bottom: 5px;   
 }
 
 #employee-form input {
     font-size: 20px;
     padding: 2px 4px;
-    width: 200px;
+    width: 250px;
     background-color: azure;
 
 }

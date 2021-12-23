@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const passport  = require("../config/passport");
  
 const employeeController = require('../controllers/employeeController');
 
@@ -16,6 +17,8 @@ router.get('/delete-employee/:id', employeeController.deleteEmployee);
 
 //route for updating employee
 router.post('/update-employee/:id', employeeController.updateEmployee);
+
+router.post("/:id/push-reviews", employeeController.pushReivews);
 
 
 

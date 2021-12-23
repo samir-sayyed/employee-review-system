@@ -7,14 +7,16 @@ module.exports.signIn = function(req, res){
 
 
 // create session for user 
-module.exports.sessionCreate = function (req, res) {
-    // console.log(typeof req.params.isAdmin);
+module.exports.sessionCreate = async function (req, res) {
+
+  let user= await Employee.findOne({email: req.body.email});
+  //console.log(user.userType);
     if(req.isAuthenticated()){
-    //   if(req.params.isAdmin==="true"){
-    //     return res.redirect('/admin');
-    //   }
-      return res.redirect('/admin'); 
-  
+      if(user.userType === 'admin'){ //if employee is admin then redirect to him to admin view
+        return res.redirect('/admin'); 
+      }else{
+        return res.redirect('/employee/employee');  //else redirect employee view
+      }
     }else{
       return redirect('back');
     }
@@ -26,10 +28,10 @@ module.exports.sessionDestroy = function (req, res) {
     return res.redirect('/')
   };
 
-module.exports.admin = function(req, res){
+module.exports.admin =  function(req, res){
     Employee.find({}, function(err, employee){
         return res.render('admin',{
             employee: employee
         });
     })
-}
+};
