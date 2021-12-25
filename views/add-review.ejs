@@ -1,17 +1,19 @@
 <link rel="stylesheet" href="/css/employee.css">
 
+<a id= "back-button" href="/employee/employee">Back</a>
 <div id="employee-container">
+   
         <div id="container">
             <!-- emoloyee details -->
                     <div id="employee-details">
                         <div id="employeeName">
                             <strong>Name </strong>
-                           <div><%= locals.user.employeeName %></div>
+                           <div><%= employee.employeeName %></div>
                         </div>
                         <div>
                             <strong>User Type </strong>
                             <div  div="userType">
-                                <%if( locals.user.userType === 'admin'){%>
+                                <%if( employee.userType === 'admin'){%>
                                   <span value="admin" selected > Admin </span>
                                 <%} else { %>
                                   <span value="employee" selected> Employee </Span>
@@ -21,13 +23,13 @@
                         <div>
                             <strong>Department </strong>
                             <div id="department" >
-                                <%if( locals.user.department === 'HR'){%>
+                                <%if(employee.department === 'HR'){%>
                                     <span id="HR" >human resource </span>
-                                <%} else if( locals.user.department  === 'Sales'){%>
+                                <%} else if(employee.department  === 'Sales'){%>
                                     <span id="Sales" > sales </span>
-                                <% } else if( locals.user.department === 'Production'){%>
+                                <% } else if(employee.department === 'Production'){%>
                                     <span id="Production" > Production </span>
-                                <%}else if( locals.user.department === 'Marketing'){%>
+                                <%}else if(employee.department === 'Marketing'){%>
                                     <span id="Marketing" > Marketing </span>
                                     <%}%>
                               </div>
@@ -35,8 +37,29 @@
         
                         <div>
                             <strong>Email : </strong>
-                            <span id="email" > <%=locals.user.email  %></span>
+                            <span id="email" > <%=employee.email  %></span>
                         </div>
+                    </div>
+
+
+                    <div id="create-performance">
+                            <h2>Add Review</h2>
+                        <form action="/performance/create-performance" method="POST">
+                            <input type="hidden" name="reviewBy" value="<%=locals.user.employeeName%>">
+                            <input type="hidden" name="reviewFor" value="<%= employee._id%>">
+                            
+                            <div>
+                                <textarea name="description" cols="30" rows="2">why giving this rank?</textarea>
+                            </div>
+                            <div >
+                                <label id="rank" for="ranking">Rank 1 to 10</label>
+                                <input type="number" name="ranking" min="1" max="10">
+                            </div>
+                    
+                            <button id="add-peformance-btn">SUBMIT</button>
+    
+                            
+                        </form>
                     </div>
 
                     <div id="review-list">
@@ -55,16 +78,7 @@
                         </div>
                         <%}%>
                     </div>
-        </div>
-
-        <div id="reviewee-list">
-            <% if(revieweeList.length>0){%>
-                    <h1 class="head1">Reviewee List</h1>
-                        <%for(let reviewee of revieweeList){%>
-                         <a href="/employee/add-review/<%= reviewee._id %>"  id="emp-name"><%= reviewee.employeeName %></a>
-                        <%}%>
-            <%}%>
-        </div>  
+        </div> 
 
  </div>
     
@@ -75,6 +89,7 @@
 
 
 
+   
 
 
 

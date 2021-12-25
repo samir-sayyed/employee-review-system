@@ -20,7 +20,8 @@ router.post('/update-employee/:id', employeeController.updateEmployee);
 
 router.post("/:id/push-reviews", employeeController.pushReivews);
 
-
+//route for add review by employee
+router.get("/add-review/:id", employeeController.addReviewPage);
 
 // console.log('router');
 module.exports = router;

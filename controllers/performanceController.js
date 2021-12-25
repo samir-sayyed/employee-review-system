@@ -37,3 +37,15 @@ module.exports.updatePerformance = function(req, res){
  
     return res.redirect('back');
 }
+
+// delete performance 
+module.exports.delete = async function (req, res) {
+    try {
+      let performance = await Performance.findById(req.params.id);
+      await performance.remove();
+      return res.redirect('back');
+    } catch (error) {
+      console.log(error);
+      return res.redirect('back');
+    }
+  };

@@ -6,9 +6,10 @@
             <% if(locals.user) {%>
 
             <% if(locals.user.userType == "admin") {%>
-                <div>
+                <div>     
                     <h1>Admin Dashboard</h1>
-                 
+                    <a href="/employee/employee" ><h5>Go to Employee Dashboard</h5></a>
+
                 </div>
                 <%} else {%> 
                 <div>

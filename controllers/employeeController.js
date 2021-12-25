@@ -1,10 +1,20 @@
 const Employee = require('../models/employee');
 
-
+// route for employee page
 module.exports.employeePage = async function(req, res){
-    // console.log("hii",req.body.email);
-   return res.render('employee')
-}
+    let revieweeList = [];
+    const loginUser = res.locals.user;
+      revieweeList = await Employee.find({_id:loginUser.listToReview});
+
+   let employee = await Employee.findById(res.locals.user.id).populate('performanceList').exec(
+        function(err, employee){
+            return res.render('employee',{
+              revieweeList,
+              employee
+            });
+        })
+  }
+
 
 //for creating new project
 module.exports.createEmployee = function(req, res){
@@ -56,28 +66,34 @@ module.exports.updateEmployee = function(req, res){
 
 //this function is for adding employee to review list
 module.exports.pushReivews = async function (req, res) {
-    try {
-      console.log(req.params)
-      console.log(req.body)
-      let reviewedUser = await Employee.findById(req.params.id)
-      if(reviewedUser && req.body.asign){
-        if(typeof(req.body.asign)==='string'){
-          await Employee.findByIdAndUpdate(req.body.asign,{$push:{"listToReview":reviewedUser.id}});
-          return res.redirect('back');
-        }
-        for(let reviewer of req.body.asign){
-          try {
-            await Employee.findByIdAndUpdate(reviewer,{$push:{"listToReview":reviewedUser.id}});
-          } catch (error) {
-            console.log(reviewer, "not granted access for review",error);
-          }
-        }
-      }
+      // console.log(req.params.id)
+      console.log(req.body.assign)
+      let reviewingUser = req.params.id;
+      let reviewedUser = req.body.assign;
+
+     await Employee.findByIdAndUpdate(reviewingUser,{$push:{"listToReview":reviewedUser}});
       return res.redirect('back')
-      
-    } catch (error) {
-      console.log(error);
-      return res.redirect('back')
-    }
+      // listToReview
     
   };
+
+
+//   controller for add review page
+
+module.exports.addReviewPage = async function(req, res){
+    let revieweeList = [];
+    const loginUser = req.params.id;
+    if(loginUser.userType==='employee'){
+      revieweeList = await Employee.find({_id:loginUser.listToReview});
+    }
+   let employee = await Employee.findById(req.params.id).populate('performanceList').exec(
+        function(err, employee){
+            return res.render('add-review',{
+              revieweeList,
+              employee
+            });
+        })
+
+    // console.log(req.params.id);
+    // return res.redirect('back')
+}

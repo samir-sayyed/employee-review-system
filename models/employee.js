@@ -30,10 +30,6 @@ const employeeSchema = new mongoose.Schema({
         enum: ["HR", "Sales", "Production","Marketing"],
         required:true
       },
-
-      joiningDate:{
-        type:Date,
-      },
       performanceList: [
         {
           type: mongoose.Schema.Types.ObjectId,
@@ -46,6 +42,8 @@ const employeeSchema = new mongoose.Schema({
           ref: "employees",
         },
       ],
+},{
+  timestamps:true
 })
 
 const Employees = mongoose.model('Employees', employeeSchema);

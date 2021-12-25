@@ -14,8 +14,11 @@
                     <select  name="userType" value ="" required>
                         <%if( employee.userType === 'admin'){%>
                           <option value="admin" selected > Yes </option>
+                          <option value="employee" > No </option>
                         <%} else { %>
-                          <option value="employee" selected> No </option>
+                        
+                          <option value="employee" > No </option>
+                          <option value="admin"  > Yes </option>
                           <%}%> 
                       </select>
                 </div>
@@ -47,10 +50,6 @@
                             <%}%>
                       </select>
                 </div>
-                <div>
-                    <label for="joiningDate">Date of Joining</label>
-                    <input type="date" value="<%= employee.joiningDate%>" name="joiningDate" id="doj"> 
-                </div>
 
                 <div>
                     <label for="email">Email</label>
@@ -71,7 +70,7 @@
                     <%for(let employee of employees){%>
                         <%if(employee.userType=='employee'){%>
                             <label class="container"><%=employee.employeeName%>
-                                <input name="asign" type="checkbox" defaultValue="<%= employee.id%>">
+                                <input name="assign" type="checkbox" value="<%= employee.id%>">
                                 <span class="checkmark"></span>
                             </label>
                             
@@ -123,6 +122,7 @@
                     <input type="hidden" name="reviewFor" value="<%= employee._id%>">
                     <div id="review-by-update">
                         <div id="review-by"><strong>Review By : </strong> <%= locals.user.employeeName%></div>
+                        <a href="/performance/<%=performance.id%>/delete">delete</a>
                     </div>
                     <div id="review-description">
                     <p id="comment">
