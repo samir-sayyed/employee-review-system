@@ -1,5 +1,5 @@
 const express = require('express');
-const port = 8000;
+const port = process.env.PORT || 5000;
 const app = express();
 const expressLayouts = require('express-ejs-layouts')//for accesing all ejs files in single layout
 const session = require("express-session");
