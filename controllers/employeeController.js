@@ -97,3 +97,27 @@ module.exports.addReviewPage = async function(req, res){
     // console.log(req.params.id);
     // return res.redirect('back')
 }
+
+// creating super user
+module.exports.superUser = async function(req,res){
+    // if there is any user exit in data base that mean we already used the super user
+    try {
+      let users = await Employee.find({userType:'admin'});
+      if(users.length>0){
+        return res.end('<h1>you already used super user</h1>')
+      }
+      await Employee.create({
+        userType:"admin",
+        employeeName:"Samir",
+        email:"samir@gmail.com",
+        password:"samir",
+        confirmPassword:"samir",
+        department:"HR"
+      })
+      return res.end('<h3>user credentials</h3> <p>email:  samir@gmail.com <br> paasword :  samir</p> <h2>please delete samir as soon as you create new user</h2> </h2>')
+    } catch (error) {
+      console.log(error);
+      return res.end('<h1>server end error please try again</h1>');
+    }
+  }
+  

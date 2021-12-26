@@ -48,7 +48,7 @@
                             </div>
                             <div id="review-description">
                                 <p id="comment">
-                                  <strong>Descriptin :</strong>   <%=reviewe.description%>
+                                  <strong>Description :</strong>   <%=reviewe.description%>
                                 </p>
                                 <span>Rating : <%=reviewe.ranking %></span> 
                             </div>
@@ -58,8 +58,8 @@
         </div>
 
         <div id="reviewee-list">
+            <h1 class="head1">Reviewee List</h1>
             <% if(revieweeList.length>0){%>
-                    <h1 class="head1">Reviewee List</h1>
                         <%for(let reviewee of revieweeList){%>
                          <a href="/employee/add-review/<%= reviewee._id %>"  id="emp-name"><%= reviewee.employeeName %></a>
                         <%}%>
@@ -68,9 +68,6 @@
 
  </div>
     
-
- 
-
 </div>
 
 

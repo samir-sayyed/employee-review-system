@@ -30,7 +30,7 @@ app.use(session({
     },
     store: MongoStore.create(
         {
-            mongoUrl:'mongodb://localhost/employee-review-system',
+            mongoUrl:'mongodb+srv://samirsayyed:786Samir!@cluster1.7ryvl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
             autoRemove:'disabled'
         },
         function(err){

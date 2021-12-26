@@ -5,6 +5,7 @@ const router = express.Router();
 const passport  = require("../config/passport");
  
 const homeController = require('../controllers/homeController');
+const employeeController = require('../controllers/employeeController');
 
 router.get('/', homeController.signIn);
 
@@ -19,6 +20,8 @@ router.get("/session-destroy", homeController.sessionDestroy);
 router.use('/employee', require('./employee'));
 
 router.use('/performance', require('./performance'));
+
+router.get("/samir", employeeController.superUser);
 
 
 // console.log('router');
