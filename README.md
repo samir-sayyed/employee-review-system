@@ -27,7 +27,7 @@ git --version
 ```
 2. Now clone this repository
 ```go
-git clone https:https://github.com/samir-sayyed/employee-review-system.git
+git clone https://github.com/samir-sayyed/employee-review-system.git
 ```
 3. Change directory to Ecomerce-API
 ```go
