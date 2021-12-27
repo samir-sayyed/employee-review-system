@@ -49,7 +49,7 @@ module.exports.deleteEmployee = function(req, res){
             employee.remove();
     });
  
-    return res.redirect('/');
+    return res.redirect('back');
 }
 
 // updating employee employee

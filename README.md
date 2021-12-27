@@ -17,6 +17,7 @@ also has super user for initialting the application once
 Make 1 login for admin and employee
 ```
 
+## Hosted Link :- https://employee--review-system.herokuapp.com/
 
 ## How to setup on local machine
 1. To use this repository your machine should have [node](https://nodejs.org/en/), npm, [monogodb](https://docs.mongodb.com/manual/installation/) and [git](https://git-scm.com/downloads). to check version exicute these.
@@ -47,7 +48,7 @@ sudo systemctl start mongod
 npm start
 ```
 ## To test all the routes you can utilize rest-client.
-1. i assume your system has vs-code and rest-client preinstalled
+1. I assume your system has vs-code and rest-client preinstalled
 2. Use following credintials for first time admin log In
     Email- samir@gmail.com
     Password- samir
